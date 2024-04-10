@@ -27,14 +27,14 @@ module.exports = async function (context, req) {
     }
     
     else if (req.method==="POST"){
-        if (req.headers.function === "add"){
+        if (req.headers.function === "ADD"){
             console.log(req);
             const newCar = req.body;
             console.log(newCar);
             cars.push(newCar);
             context.res.json(newCar);
         }
-        else if (req.headers.function === "delete"){
+        else if (req.headers.function === "REMOVE"){
             const id = req.body.id;
             cars.splice(id, 1);
             context.res.json({ message: `Car with id ${id} deleted` });
