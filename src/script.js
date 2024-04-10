@@ -1,10 +1,11 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const loadCarsBtn = document.getElementById('loadCarsBtn');
     const carList = document.getElementById('carList');
     cars = [];
     
     loadCarsBtn.addEventListener('click', () => {
-        fetch('/api/backend', {method: "GET"})
+        fetch('/api/carInfo', {method: "GET"})
             .then(response => response.json())
             .then(data => {
                 cars = data;
@@ -28,10 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 });
-
-//add car
 function addCar(newCar) {
-    fetch('/api/backend', {
+    fetch('/api/carInfo', {
         method: "POST",
         headers: {
             "Content-Type" : "application/JSON",
@@ -64,7 +63,7 @@ carForm.addEventListener('submit', event => {
 // Function to remove a car
 function removeCar(index) {
     const carId = index;
-    fetch('/api/backend', {
+    fetch('/api/carInfo', {
         method: "POST", 
         headers: {
             "function" : "delete"
