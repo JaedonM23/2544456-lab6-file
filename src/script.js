@@ -34,7 +34,7 @@ function addCar(newCar) {
         method: "POST",
         headers: {
             "Content-Type" : "application/JSON",
-            "function" : "ADD"
+            "function" : "add"
         },
         body: JSON.stringify(newCar)
     })
@@ -66,7 +66,7 @@ function removeCar(index) {
     fetch('/api/backend', {
         method: "POST", 
         headers: {
-            "function" : "DELETE"
+            "function" : "delete"
         },
         body: JSON.stringify({id: carId})
     })
